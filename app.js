@@ -38,7 +38,6 @@ let storeParis = new shopLocation("Paris", 20, 38, 2.3);
 let storeLima = new shopLocation("Lima", 2, 16, 4.6);
 
 
-
 let seattleSales = document.getElementById('seattleList');
 console.log(seattleSales);
 
