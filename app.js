@@ -14,6 +14,9 @@
 
 // How do I create a constructor for this code to use on all stores?
 
+let storeHours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
+
+let seattleSales = document.getElementById('seattleList');
 
 const storeSeattle = {
     minCustomer: 23,
@@ -37,25 +40,26 @@ const storeSeattle = {
         }
         cookieAverage.push(totalCookies);
         return cookieAverage;
+    },
+
+    totalSales: function (){
+        
+        for (let i = 0; i < cookiesSeattle.length; i++){
+            let li = document.createElement('li');
+            li.textContent = `${storeHours}: cookiesSeattle[i] cookies`;
+            seattleList.appendChild(li);
+        };
     }
 };
 
+storeSeattle.totalSales();
 let customers6am = storeSeattle.customersPerHour();
 console.log(customers6am);
 let customers8pm = storeSeattle.customersPerHour();
 console.log(customers8pm);
-
 const cookiesSeattle = storeSeattle.cookiesPerHour();
 console.log(cookiesSeattle);
 
-const ul = document.createElement('ul');
-
-for (let i = 0; i < cookiesSeattle.length; i++){
-    const li = document.createElement('li');
-    li.textContent = cookiesSeattle[i];
-    ul.appendChild(li);
-}
-document.body.appendChild(ul);
 
 let storeTokyo = {
     minCustomer: 3,
