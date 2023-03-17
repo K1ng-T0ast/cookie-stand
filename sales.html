@@ -15,20 +15,43 @@
     <table id="storeList">
         <thead>
             <tr>
-            
             </tr>
         </thead>
         <tbody id="store-values">
 
         </tbody>
-        <tfoot>
+        <tfoot id="footer-values">
 
         </tfoot>
     </table>
     <p>Shown here is an aggregate of sales data per day for our five store locations across the globe. Salmon may only spawn near Seattle but people enjoy our salmon cookies all around the world!</p>
+    <main>
+        <h3>Create A New Store To See Earnings Potential for Franchising Opportunities!</h3>        
+        <form id="store-form">
+            <fieldset>
+                <legend>Create Your Future Salmon Cookie Enterprise! Please Be Unreasonable.</legend>
+                <section class="form-section">
+                    <label for="location-input">Location (City)</label>
+                    <input type="text" id="location-input" name="location_name" placeholder="Location">
+                </section>
+                <section class="form-section">
+                    <label for="minimum-input">Minimum # of Customers Per Day: </label>
+                    <input type="number" id="minimum-input" name="minimum_customer" placeholder="Min Customers">
+                </section>
+                <section class="form-section">
+                    <label for="maximum-input">Maximum # of Customers Per Day: </label>
+                    <input type="number" id="maximum-input" name="maximum_customer" placeholder="Max Customers">
+                </section>
+                <section class="form-section">
+                    <label for="average-input">Average Cookie Sales Per Day: </label>
+                    <input type="number" id="location-input" name="average_cookies" placeholder="Average Cookie Sales">
+                </section>
+                <button type="submit">Take Me to the Revenue Upstream!</button>
+            </fieldset>
+        </form>
+    </main>
     <footer>
-
-    </footer>
+</footer>
     <script src="app.js"></script>
 </body>
 </html>

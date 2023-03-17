@@ -1,6 +1,8 @@
 "use strict";
 
 const tableBodyEl = document.getElementById('store-values');
+const footerBodyEl = document.getElementById('footer-values');
+
 
 let shopHours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 console.log(shopHours);
@@ -31,7 +33,6 @@ let operatingHours = function(){
     totalCell.textContent = 'Daily Totals';
     headerRow.appendChild(totalCell);
 };
-operatingHours();
 
 Store.prototype.getAverageCustomers = function () {
     const range = this.maxCustomer - this.minCustomer;
@@ -69,14 +70,16 @@ Store.prototype.renderTable = function(){
 };
 
 let storeTotals = function(){
-
+    
+    footerBodyEl.innerHTML = '';
     let footerRow = document.createElement('tr');
-    tableBodyEl.appendChild(footerRow);
+    footerBodyEl.appendChild(footerRow);
 
+    
     let footerCell = document.createElement('th');
     footerCell.textContent = 'Totals';
     footerRow.appendChild(footerCell);
-
+    
     let grandTotal = 0;
     for (let i =0; i < shopHours.length; i++){
         let hourlyTotal = 0;
@@ -94,30 +97,35 @@ let storeTotals = function(){
 };
 
 
-let storeSeattle = new Store('Seattle', 23, 65, 6.3);
-storeSeattle.getAverageCookies();
-storeSeattle.renderTable();
-storeList.push(storeSeattle);
-let storeTokyo = new Store('Tokyo', 3, 24, 1.2);
-storeTokyo.getAverageCookies();
-storeTokyo.renderTable();
-storeList.push(storeTokyo);
-let storeDubai = new Store('Dubai', 11, 38, 3.7);
-storeDubai.getAverageCookies();
-storeDubai.renderTable();
-storeList.push(storeDubai);
-let storeParis = new Store('Paris', 20, 38, 2.3);
-storeParis.getAverageCookies();
-storeParis.renderTable();
-storeList.push(storeParis);
-let storeLima = new Store('Lima', 2, 16, 4.6);
-storeLima.getAverageCookies();
-storeLima.renderTable();
-storeList.push(storeLima);
+operatingHours();
 
-storeTotals();
+let storeSeattle = new Store('Seattle', 23, 65, 6.3);
+let storeTokyo = new Store('Tokyo', 3, 24, 1.2);
+let storeDubai = new Store('Dubai', 11, 38, 3.7);
+let storeParis = new Store('Paris', 20, 38, 2.3);
+let storeLima = new Store('Lima', 2, 16, 4.6);
 
 for (let i = 0; i < storeList.length; i++){
-    storeList[i].drawTable();
+    storeList[i].getAverageCookies();
+    storeList[i].renderTable();
 }
+storeTotals();
+
+let formEL = document.getElementById('store-form');
+
+function handleClick(event) {
+    console.log('click occured');
+    event.preventDefault();
+    let { location_name, minimum_customer, maximum_customer, average_cookies } = event.target;
+    console.log(location_name.value, minimum_customer.value, maximum_customer.value, average_cookies.value);
+    let newStore = new Store(location_name.value, parseInt(minimum_customer.value), parseInt(maximum_customer.value), parseFloat(average_cookies.value));
+    storeList.push(newStore);
+    newStore.getAverageCookies();
+    newStore.renderTable();
+    storeTotals();
+    console.log(event);
+    location_name.value = '', minimum_customer.value = '', maximum_customer.value = '', average_cookies.value = '';
+}
+
+formEL.addEventListener('submit', handleClick);
 
