@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Lato&family=Inter">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="stylesales.css">
     <title>Document</title>
 </head>
-<body>
+<body id="salesbody">
     <header>
-        <h1>Sales Data for All Stores</h1>
-        <a href="index.html">Migrate Back to the Home Page!</a>
+        <h1 id="salesh1">Sales Data for All Stores</h1>
     </header>
+    <span id="migrate">
+        <a href="index.html">Migrate Back to the Home Page!</a>
+    </span>
+
     <table id="storeList">
         <thead>
             <tr>
@@ -24,12 +29,12 @@
 
         </tfoot>
     </table>
-    <p>Shown here is an aggregate of sales data per day for our five store locations across the globe. Salmon may only spawn near Seattle but people enjoy our salmon cookies all around the world!</p>
+    <p id="salesp">Shown here is an aggregate of sales data per day for our five store locations across the globe. Salmon may only spawn near Seattle but people enjoy our salmon cookies all around the world!</p>
     <main>
         <h3>Create A New Store To See Earnings Potential for Franchising Opportunities!</h3>        
         <form id="store-form">
             <fieldset>
-                <legend>Create Your Future Salmon Cookie Enterprise! Please Be Unreasonable.</legend>
+                <legend id="leg1">Create Your Future Salmon Cookie Enterprise! Please Be Unreasonable.</legend>
                 <section class="form-section">
                     <label for="location-input">Location (City)</label>
                     <input type="text" id="location-input" name="location_name" placeholder="Please Type a Location">
@@ -50,8 +55,11 @@
             </fieldset>
         </form>
     </main>
-    <footer>
-</footer>
+
+        <footer>
+            <p>&copy 2023  | Pat's Salmon Cookies  | <a href="https://www.fisheries.noaa.gov/species/atlantic-salmon-protected">Learn More About Salmon Conversation Efforts Here</a></p>
+        </footer>
+
     <script src="app.js"></script>
 </body>
 </html>
